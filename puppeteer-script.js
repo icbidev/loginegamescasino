@@ -1,7 +1,12 @@
 const puppeteer = require('puppeteer');
 
 (async () => {
-    const browser = await puppeteer.launch({ headless: false }); // Launch in non-headless mode for debugging
+    const browser = await puppeteer.launch({
+        headless: false,
+        defaultViewport: null,
+        args: ['--start-maximized'],
+        executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome-stable' // Adjust this path if necessary
+    });
     const page = await browser.newPage();
 
     // Listen for all network responses
