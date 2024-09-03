@@ -4,8 +4,7 @@ const puppeteer = require('puppeteer');
     const browser = await puppeteer.launch({
         headless: false,
         defaultViewport: null,
-        args: ['--start-maximized'],
-        executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome-stable' // Adjust this path if necessary
+        args: ['--start-maximized']
     });
     const page = await browser.newPage();
 
